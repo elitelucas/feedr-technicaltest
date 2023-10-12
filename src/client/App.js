@@ -9,6 +9,7 @@ export default () => {
   const [search, setSearch] = useState('');
   const [dietaryCounts, setDietaryCounts] = useState([]);
 
+  //fetch items from server
   useEffect(() => {
     fetchItems();
   }, [search]);
@@ -22,7 +23,7 @@ export default () => {
     }
   };
 
-
+  //count the dietary type
   useEffect(() => {
     const dietaryCounts = selectedItems.reduce((counts, item) => {
       item.dietaries.forEach(dietary => {
@@ -33,6 +34,7 @@ export default () => {
     setDietaryCounts(Object.entries(dietaryCounts))
   }, [selectedItems]);
 
+  //handle click of X button
   const removeSelectedItem = (index) => {
     const updatedList = selectedItems.filter((item, i) => i !== index);
     setSelectedItems(updatedList);
@@ -93,7 +95,6 @@ export default () => {
                   </li>
                 )
               }
-
             </ul>
           </div>
         </div>

@@ -9,5 +9,8 @@ module.exports = {
     moduleDirectories: [
         'node_modules',
         'testing'
-    ]
+    ],
+    transform: {
+        "^.+\\.jsx?$": "babel-jest"
+    }
 };
